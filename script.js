@@ -7,13 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         slider.style.transform = `perspective(1000px) rotateX(-16deg) rotateY(${rotationY}deg)`;
     };
 
-    // Auto rotate
     let autoRotate = setInterval(() => {
         rotationY += 360 / quantity;
         updateSliderTransform();
     }, 1000);
 
-    // Button navigation
     document.querySelector(".slide-left").addEventListener("click", () => {
         rotationY -= 360 / quantity;
         updateSliderTransform();
@@ -34,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2000);
     }
 
-    // 🖱️ Scroll with mouse only when hovering over the slider
     slider.addEventListener("wheel", (e) => {
         e.preventDefault();
         if (e.deltaY > 0 || e.deltaX > 0) {
